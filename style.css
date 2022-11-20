@@ -15,6 +15,32 @@
     font-family: 'Creepster', cursive;
 }
 
+button {
+  position: fixed;
+  margin-top: 1px;
+}
+
+#connectWallet {
+  position: absolute;
+  font-size: 3vmin;
+  top: 3%;
+  right: 5%;
+}
+
+#mintNft {
+  position: absolute;
+  font-size: 3vmin;
+  top: 3%;
+  left: 5%;
+}
+
+#claimTokens {
+    position: absolute;
+    font-size: 3vmin;
+    top: 3%;
+    left: 20%;
+}
+
 #player, #layer1, #layer2, #layer3, #layer4, #layer5, #layer6, #enemy_fly, #enemy_plant, #enemy_spider, #fire, #collisionAnimation, #lives {
     display: none;
 }
