@@ -12,6 +12,9 @@
 </head>
 <body>
     <canvas id="canvas1"></canvas>
+    <button id="connectWallet" onclick="connectMetamask()">Connect Metamask</button>
+    <button id="mintNft" onclick="claimNft()">Mint NFT</button>
+    <button id="claimTokens" onclick="claimTokens()">Claim Tokens</button>
     <img id="player" src="./assets/player.png" alt="">
     <img id="layer1" src="./assets/layer-1.png" alt="">
     <img id="layer2" src="./assets/layer-2.png" alt="">
@@ -27,5 +30,9 @@
     <img id="lives" src="./assets/heart.png" alt="">
 
     <script src="main.js" type="module"></script>
+
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+
+    <script src="./helpers/blockchain.js"></script>
 </body>
 </html>

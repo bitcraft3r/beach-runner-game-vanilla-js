@@ -78,12 +78,17 @@ export class Player {
                 this.game.collisions.push(new CollisionAnimation(this.game, enemy.x + enemy.width * 0.5, enemy.y + enemy.height * 0.5));
                 if (this.currentState === this.states[4] || this.currentState === this.states[5]){
                     this.game.score++;
+                    window.totalGweiScore = this.game.score;
                     this.game.floatingMessages.push(new FloatingMessage('+1', enemy.x, enemy.y, 130, 46));
                 } else {
                     this.setState(6, 0);
                     this.game.score-=3;
+                    window.totalGweiScore = this.game.score;
                     this.game.lives--;
-                    if (this.game.lives <= 0) this.game.gameOver = true;
+                    if (this.game.lives <= 0) {
+                        window.totalGweiScore = this.game.score
+                        this.game.gameOver = true;
+                    }
                 }
             } 
         })
