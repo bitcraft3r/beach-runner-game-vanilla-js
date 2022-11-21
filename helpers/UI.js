@@ -1,8 +1,8 @@
 export class UI {
     constructor(game){
         this.game = game;
-        this.fontSize = 30;
-        this.fontFamily = 'Creepster';
+        this.fontSize = 40;
+        this.fontFamily = 'VT323';
         this.livesImage = lives;
     }
     draw(context){
