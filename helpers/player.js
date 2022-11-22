@@ -5,7 +5,7 @@ import { FloatingMessage } from './floatingMessages.js'
 export class Player {
     constructor(game){
         this.game = game;
-        this.width = 727/10; // single frame width
+        this.width = 1500/16; // single frame width
         this.height = 125; // single frame height
         this.x = 50;
         this.y = this.game.height - this.height - this.game.groundMargin;

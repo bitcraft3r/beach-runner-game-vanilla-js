@@ -23,8 +23,8 @@ export class Idle extends State {
     }
     enter(){
         // this.game.player.frameX = 0;
-        this.game.player.width = 727/10;
-        this.game.player.maxFrame = 9;
+        this.game.player.width = 1500/16;
+        this.game.player.maxFrame = 15;
         this.game.player.frameY = 0;
     }
     handleInput(input){
@@ -41,9 +41,9 @@ export class Running extends State {
     }
     enter(){
         // this.game.player.frameX = 0;
-        this.game.player.width = 905/10;
-        this.game.player.maxFrame = 9;
-        this.game.player.frameY = 1;
+        this.game.player.width = 1126/11;
+        this.game.player.maxFrame = 10;
+        this.game.player.frameY = 2;
     }
     handleInput(input){
         this.game.particles.push(new Dust(this.game, this.game.player.x + this.game.player.width * 0.6, this.game.player.y + this.game.player.height));
@@ -62,9 +62,9 @@ export class Jumping extends State {
     enter(){
         if (this.game.player.onGround()) this.game.player.vy -= 27;
         // this.game.player.frameX = 0;
-        this.game.player.width = 920/10;
-        this.game.player.maxFrame = 9;
-        this.game.player.frameY = 2;
+        this.game.player.width = 1724/16;
+        this.game.player.maxFrame = 15;
+        this.game.player.frameY = 3;
     }
     handleInput(input){
         if (this.game.player.vy > this.game.player.weight){
@@ -82,9 +82,9 @@ export class Falling extends State {
     }
     enter(){
         // this.game.player.frameX = 0
-        this.game.player.width = 920/10;
-        this.game.player.maxFrame = 9;
-        this.game.player.frameY = 2;
+        this.game.player.width = 1724/16;
+        this.game.player.maxFrame = 15;
+        this.game.player.frameY = 3;
     }
     handleInput(input){
         if (this.game.player.onGround()){
@@ -100,9 +100,9 @@ export class Attacking extends State {
     }
     enter(){
         // this.game.player.frameX = 0
-        this.game.player.width = 1062/10;
-        this.game.player.maxFrame = 9;
-        this.game.player.frameY = 3;
+        this.game.player.width = 1375/11;
+        this.game.player.maxFrame = 10;
+        this.game.player.frameY = 4;
     }
     handleInput(input){
         this.game.particles.unshift(new Fire(this.game, this.game.player.x + this.game.player.width * 0.5, this.game.player.y + this.game.player.height * 0.5));
@@ -123,9 +123,9 @@ export class Diving extends State {
     }
     enter(){
         // this.game.player.frameX = 0
-        this.game.player.width = 1062/10;
-        this.game.player.maxFrame = 9;
-        this.game.player.frameY = 3;
+        this.game.player.width = 1375/11;
+        this.game.player.maxFrame = 10;
+        this.game.player.frameY = 4;
         this.game.player.vy = 15;
     }
     handleInput(input){
@@ -146,16 +146,16 @@ export class Hit extends State {
     }
     enter(){
         // this.game.player.frameX = 0
-        this.game.player.width = 727/10;
-        this.game.player.maxFrame = 9;
-        this.game.player.frameY = 0;
+        this.game.player.width = 3096/17;
+        this.game.player.maxFrame = 16;
+        this.game.player.frameY = 5;
     }
     handleInput(input){
 
-        if (this.game.player.frameX >= 9 && this.game.player.onGround()){
+        if (this.game.player.frameX >= 16 && this.game.player.onGround()){
             this.game.player.setState(states.RUNNING, 1);
 
-        } else if (this.game.player.frameX >= 9 && !this.game.player.onGround()){
+        } else if (this.game.player.frameX >= 16 && !this.game.player.onGround()){
             this.game.player.setState(states.FALLING, 1);
         }
     } 
