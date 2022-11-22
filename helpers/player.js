@@ -77,9 +77,9 @@ export class Player {
                 enemy.markedForDeletion = true;
                 this.game.collisions.push(new CollisionAnimation(this.game, enemy.x + enemy.width * 0.5, enemy.y + enemy.height * 0.5));
                 if (this.currentState === this.states[4] || this.currentState === this.states[5]){
-                    this.game.score++;
+                    this.game.score += 3;
                     window.totalGweiScore = this.game.score;
-                    this.game.floatingMessages.push(new FloatingMessage('+1', enemy.x, enemy.y, 130, 46));
+                    this.game.floatingMessages.push(new FloatingMessage('+3', enemy.x, enemy.y, 130, 46));
                 } else {
                     this.setState(6, 0);
                     this.game.score-=3;
@@ -91,6 +91,21 @@ export class Player {
                     }
                 }
             } 
+        })
+        this.game.coins.forEach(coin => {
+            if (
+                coin.x < this.x + this.width &&
+                coin.x + coin.width > this.x &&
+                coin.y < this.y + this.height &&
+                coin.y + coin.height > this.y
+            ){
+                coin.markedForDeletion = true;
+                this.game.collisions.push(new CollisionAnimation(this.game, coin.x + coin.width * 0.5, coin.y + coin.height * 0.5));
+                this.game.score += 2;
+                window.totalGweiScore = this.game.score;
+                new FloatingMessage('+2', coin.x, coin.y, 130, 46);
+                
+            }
         })
     }
 }

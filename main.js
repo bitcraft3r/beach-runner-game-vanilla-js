@@ -85,6 +85,7 @@ window.addEventListener('load', function(){
                 collision.update(deltaTime);
             })
             this.enemies = this.enemies.filter(enemy => !enemy.markedForDeletion);
+            this.coins = this.coins.filter(coin => !coin.markedForDeletion);
             this.particles = this.particles.filter(particle => !particle.markedForDeletion);
             this.collisions = this.collisions.filter(collision => !collision.markedForDeletion);
             this.floatingMessages = this.floatingMessages.filter(message => !message.markedForDeletion);
