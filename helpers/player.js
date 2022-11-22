@@ -1,12 +1,12 @@
-import { Sitting, Running, Jumping, Falling, Rolling, Diving, Hit } from './playerStates.js'
+import { Idle, Running, Jumping, Falling, Attacking, Diving, Hit } from './playerStates.js'
 import { CollisionAnimation } from './collisionAnimation.js'
 import { FloatingMessage } from './floatingMessages.js'
 
 export class Player {
     constructor(game){
         this.game = game;
-        this.width = 100; // single frame width
-        this.height = 91.3; // single frame height
+        this.width = 727/10; // single frame width
+        this.height = 125; // single frame height
         this.x = 50;
         this.y = this.game.height - this.height - this.game.groundMargin;
         this.vy = 0;
@@ -15,13 +15,13 @@ export class Player {
         this.image = player; // this.image = document.getElementById('player'); 
         this.frameX = 0;
         this.frameY = 0;
-        this.maxFrame = 5;
-        this.fps = 30;
+        this.maxFrame = 7;
+        this.fps = 50;
         this.frameInterval = 1000/this.fps;
         this.frameTimer = 0;
         this.speed = 0;
         this.maxSpeed = 10;
-        this.states = [new Sitting(this.game), new Running(this.game), new Jumping(this.game), new Falling(this.game), new Rolling(this.game), new Diving(this.game), new Hit(this.game)];
+        this.states = [new Idle(this.game), new Running(this.game), new Jumping(this.game), new Falling(this.game), new Attacking(this.game), new Diving(this.game), new Hit(this.game)];
         this.currentState = null;
     }
     update(input, deltaTime){
