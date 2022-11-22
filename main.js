@@ -1,7 +1,7 @@
 import { Player } from './helpers/player.js'
 import { InputHandler } from './helpers/input.js'
 import { Background } from './helpers/background.js'
-import { FlyingEnemy, GroundEnemy, ClimbingEnemy } from './helpers/enemies.js'
+import { GroundEnemy, Coin } from './helpers/enemies.js'
 import { UI } from './helpers/UI.js'
 
 window.addEventListener('load', function(){
@@ -94,8 +94,9 @@ window.addEventListener('load', function(){
         }
         addEnemy(){
             if (this.speed > 0 && Math.random() < 0.5) this.enemies.push(new GroundEnemy(this));
-            else if (this.speed > 0) this.enemies.push (new ClimbingEnemy(this));
-            this.enemies.push(new FlyingEnemy(this));
+            // else if (this.speed > 0) this.enemies.push (new ClimbingEnemy(this));
+            else if (this.speed > 0) this.enemies.push (new Coin(this));
+            // this.enemies.push(new Coin(this));
         }
     }
 
