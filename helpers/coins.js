@@ -22,7 +22,14 @@ class Item {
         if (this.x + this.width < 0) this.markedForDeletion = true;
     }
     draw(context){
-        if (this.game.debug) context.strokeRect(this.x, this.y, this.width, this.height);
+        if (this.game.debug){
+            context.lineWidth = 3;
+            context.strokeStyle = 'white';
+            context.beginPath();
+            context.arc(this.x + this.width/2, this.y + this.height/2, this.width/2, 0, Math.PI * 2);
+            context.stroke();
+            // context.strokeRect(this.x, this.y, this.width, this.height);
+        } 
         context.drawImage(this.image, this.width*this.frameX,0,this.width,this.height, this.x,this.y,this.width,this.height)
     }
 }

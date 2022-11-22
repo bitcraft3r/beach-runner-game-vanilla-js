@@ -51,11 +51,14 @@ export class Player {
         }
     }
     draw(context){
-        if (this.game.debug) context.strokeRect(this.x, this.y, this.width, this.height);
-        // // visual aid
-        // context.strokeStyle = 'red';
+        if (this.game.debug){
+            context.lineWidth = 3;
+            context.strokeStyle = 'white';
+            context.beginPath();
+            context.arc(this.x + this.width/2, this.y + this.height/2, this.width/2, 0, Math.PI * 2);
+            context.stroke();
+        }
         // context.strokeRect(this.x, this.y, this.width, this.height);
-        // draw
         context.drawImage(this.image, this.width*this.frameX,this.height*this.frameY,this.width,this.height, this.x,this.y,this.width,this.height);
     }
     onGround(){
@@ -68,11 +71,17 @@ export class Player {
     }
     checkCollision(){
         this.game.enemies.forEach(enemy => {
+            const dx = (enemy.x + enemy.width/2) - (this.x + this.width/2);
+            const dy = (enemy.y + enemy.height/2) - (this.y + this.height/2);
+            const distance = Math.sqrt(dx*dx+dy*dy);
+            // if (){
+            //     gameOver = true;
             if (
-                enemy.x < this.x + this.width &&
-                enemy.x + enemy.width > this.x &&
-                enemy.y < this.y + this.height &&
-                enemy.y + enemy.height > this.y
+                distance < enemy.width/2.5 + this.width/2
+                // enemy.x < this.x + this.width &&
+                // enemy.x + enemy.width > this.x &&
+                // enemy.y < this.y + this.height &&
+                // enemy.y + enemy.height > this.y
             ){
                 enemy.markedForDeletion = true;
                 this.game.collisions.push(new CollisionAnimation(this.game, enemy.x + enemy.width * 0.5, enemy.y + enemy.height * 0.5));
@@ -93,11 +102,15 @@ export class Player {
             } 
         })
         this.game.coins.forEach(coin => {
+            const dx = (coin.x + coin.width/2) - (this.x + this.width/2);
+            const dy = (coin.y + coin.height/2) - (this.y + this.height/2);
+            const distance = Math.sqrt(dx*dx+dy*dy);
             if (
-                coin.x < this.x + this.width &&
-                coin.x + coin.width > this.x &&
-                coin.y < this.y + this.height &&
-                coin.y + coin.height > this.y
+                distance < coin.width/2 + this.width/2
+                // coin.x < this.x + this.width &&
+                // coin.x + coin.width > this.x &&
+                // coin.y < this.y + this.height &&
+                // coin.y + coin.height > this.y
             ){
                 coin.markedForDeletion = true;
                 this.game.collisions.push(new CollisionAnimation(this.game, coin.x + coin.width * 0.5, coin.y + coin.height * 0.5));
