@@ -57,7 +57,7 @@ class Enemy {
 //     }
 // }
 
-export class GroundEnemy extends Enemy {
+export class AfroEnemy extends Enemy {
     constructor(game){
         super();
         this.game = game;
@@ -65,7 +65,7 @@ export class GroundEnemy extends Enemy {
         this.height = 100;
         this.x = this.game.width;
         this.y = this.game.height - this.height - this.game.groundMargin;
-        this.image = enemy_plant;
+        this.image = enemy_afro;
         this.speedX = Math.random() + 3;
         this.speedY = 0;
         this.maxFrame = 4;

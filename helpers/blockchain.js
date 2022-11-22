@@ -1,7 +1,6 @@
 let provider = new ethers.providers.Web3Provider(window.ethereum)
 let signer
-totalGweiScore = 0 // however if 0 score, click Claim Tokens will error
-
+totalGweiScore = 0;
 async function connectMetamask() {
     await provider.send("eth_requestAccounts", []);
     signer = await provider.getSigner();
@@ -19,9 +18,11 @@ async function claimTokens() {
     ];
     const runTokenContract = new ethers.Contract(runTokenContractAddress, runTokenContractAbi, provider);
     let convertToWei = 1000000000
-    // let amountToClaim = window.totalGweiScore * convertToWei
+    // if amount claimed is >=1000 coins, will be error: "invalid BigNumber string"
+    if (window.totalGweiScore >= 1000){
+        window.totalGweiScore = 999.9999
+    }
     let amountToClaim = window.totalGweiScore * convertToWei * convertToWei
-    // let amountToClaim = 100000000000 * 1000000000 // 1
     await runTokenContract.connect(signer).mintTokens(signer.getAddress(), amountToClaim.toString())
 }
 

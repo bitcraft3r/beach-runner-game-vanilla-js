@@ -1,7 +1,7 @@
 import { Player } from './helpers/player.js'
 import { InputHandler } from './helpers/input.js'
 import { Background } from './helpers/background.js'
-import { GroundEnemy, DinoEnemy } from './helpers/enemies.js'
+import { AfroEnemy, DinoEnemy } from './helpers/enemies.js'
 import { Coin } from './helpers/coins.js'
 import { UI } from './helpers/UI.js'
 
@@ -29,15 +29,15 @@ window.addEventListener('load', function(){
             this.coins = [];
             this.maxParticles = 50;
             this.enemyTimer = 0;
-            this.enemyInterval = 1000;
+            this.enemyInterval = 1200;
             this.coinTimer = 0;
-            this.coinInterval = 1000;
+            this.coinInterval = 2000;
             this.debug = false;
             this.score = 0;
-            this.winningScore = 40;
+            this.winningScore = 50;
             this.fontColor = 'black';
             this.time = 0;
-            this.maxTime = 100000;
+            this.maxTime = 30000;
             this.gameOver = false;
             this.lives = 3;
             this.player.currentState = this.player.states[0];
@@ -111,7 +111,7 @@ window.addEventListener('load', function(){
             this.UI.draw(context);
         }
         addEnemy(){
-            if (this.speed > 0 && Math.random() < 0.5) this.enemies.push(new GroundEnemy(this));
+            if (this.speed > 0 && Math.random() < 0.5) this.enemies.push(new AfroEnemy(this));
             else if (this.speed > 0) this.enemies.push (new DinoEnemy(this));
             // else if (this.speed > 0) this.enemies.push (new ClimbingEnemy(this));
             // this.enemies.push(new Coin(this));

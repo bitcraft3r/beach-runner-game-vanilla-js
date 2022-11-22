@@ -1,4 +1,4 @@
-import { Idle, Running, Jumping, Falling, Attacking, Diving, Hit } from './playerStates.js'
+import { Idle, Running, Jumping, Falling, Hit } from './playerStates.js'
 import { CollisionAnimation } from './collisionAnimation.js'
 import { FloatingMessage } from './floatingMessages.js'
 
@@ -21,7 +21,7 @@ export class Player {
         this.frameTimer = 0;
         this.speed = 0;
         this.maxSpeed = 10;
-        this.states = [new Idle(this.game), new Running(this.game), new Jumping(this.game), new Falling(this.game), new Attacking(this.game), new Diving(this.game), new Hit(this.game)];
+        this.states = [new Idle(this.game), new Running(this.game), new Jumping(this.game), new Falling(this.game), new Hit(this.game)];
         this.currentState = null;
     }
     update(input, deltaTime){
@@ -29,8 +29,8 @@ export class Player {
         this.currentState.handleInput(input);
         // horizontal movement
         this.x += this.speed;
-        if (input.includes('ArrowRight') && this.currentState !== this.states[6]) this.speed = this.maxSpeed;
-        else if (input.includes('ArrowLeft') && this.currentState !== this.states[6]) this.speed = -this.maxSpeed;
+        if (input.includes('ArrowRight') && this.currentState !== this.states[4]) this.speed = this.maxSpeed;
+        else if (input.includes('ArrowLeft') && this.currentState !== this.states[4]) this.speed = -this.maxSpeed;
         else this.speed = 0;
         // horizontal boundaries
         if (this.x < 0) this.x = 0;
@@ -85,19 +85,19 @@ export class Player {
             ){
                 enemy.markedForDeletion = true;
                 this.game.collisions.push(new CollisionAnimation(this.game, enemy.x + enemy.width * 0.5, enemy.y + enemy.height * 0.5));
-                if (this.currentState === this.states[4] || this.currentState === this.states[5]){
-                    this.game.score += 3;
-                    window.totalGweiScore = this.game.score;
-                    this.game.floatingMessages.push(new FloatingMessage('+3', enemy.x, enemy.y, 130, 46));
-                } else {
-                    this.setState(6, 0);
-                    this.game.score-=3;
+                // if (this.currentState === this.states[4] || this.currentState === this.states[5]){
+                //     this.game.score += 1;
+                //     window.totalGweiScore = this.game.score;
+                //     this.game.floatingMessages.push(new FloatingMessage('+1', enemy.x, enemy.y, 130, 46));
+                // } else {
+                    this.setState(4, 0);
+                    // this.game.score-=3;
                     window.totalGweiScore = this.game.score;
                     this.game.lives--;
                     if (this.game.lives <= 0) {
                         window.totalGweiScore = this.game.score
                         this.game.gameOver = true;
-                    }
+                    // }
                 }
             } 
         })
@@ -114,10 +114,12 @@ export class Player {
             ){
                 coin.markedForDeletion = true;
                 this.game.collisions.push(new CollisionAnimation(this.game, coin.x + coin.width * 0.5, coin.y + coin.height * 0.5));
-                this.game.score += 2;
+                this.game.score += 5;
                 window.totalGweiScore = this.game.score;
-                new FloatingMessage('+2', coin.x, coin.y, 130, 46);
+                this.game.floatingMessages.push(new FloatingMessage('+5', coin.x, coin.y, 150, 46));
                 
+                this.game.maxSpeed += 1;
+
             }
         })
     }

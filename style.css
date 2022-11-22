@@ -41,6 +41,6 @@ button {
     left: 20%;
 }
 
-#player, #layer1, #layer2, #layer3, #layer4, #layer5, #layer6, #enemy_dino, #enemy_plant, #enemy_spider, #fire, #collisionAnimation, #lives, #coin {
+#player, #layer1, #layer2, #layer3, #layer4, #layer5, #layer6, #enemy_dino, #enemy_afro, #enemy_spider, #fire, #collisionAnimation, #lives, #coin {
     display: none;
 }
