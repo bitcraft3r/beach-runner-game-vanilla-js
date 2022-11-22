@@ -28,12 +28,12 @@ export class UI {
             context.textAlign = 'center';
             context.font = this.fontSize * 2 + 'px ' + this.fontFamily;
             if (this.game.score > this.game.winningScore){
-                context.fillText('Boo-yah', this.game.width * 0.5, this.game.height * 0.5 - 20);
+                context.fillText('HO! HO! HO!', this.game.width * 0.5, this.game.height * 0.5 - 20);
                 context.font = this.fontSize * 0.7 + 'px ' + this.fontFamily;
-                context.fillText('What are creatures of the night afraid of? YOU!!!', this.game.width * 0.5, this.game.height * 0.5 + 20);
+                context.fillText(`Who's been a good boy this year? YOU!!!`, this.game.width * 0.5, this.game.height * 0.5 + 20);
             }
              else {
-                context.fillText('Love at first bite?', this.game.width * 0.5, this.game.height * 0.5 - 20);
+                context.fillText('Tis the season to be...', this.game.width * 0.5, this.game.height * 0.5 - 20);
                 context.font = this.fontSize * 0.7 + 'px ' + this.fontFamily;
                 context.fillText('Nope. Better luck next time!', this.game.width * 0.5, this.game.height * 0.5 + 20);
             }
