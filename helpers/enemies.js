@@ -59,9 +59,24 @@ export class GroundEnemy extends Enemy {
         this.x = this.game.width;
         this.y = this.game.height - this.height - this.game.groundMargin;
         this.image = enemy_plant;
-        this.speedX = Math.random() + 2;
+        this.speedX = Math.random() + 3;
         this.speedY = 0;
         this.maxFrame = 4;
+    }
+}
+
+export class DinoEnemy extends Enemy {
+    constructor(game){
+        super();
+        this.game = game;
+        this.width = 1851/12;
+        this.height = 135;
+        this.x = this.game.width;
+        this.y = this.game.height - this.height - this.game.groundMargin;
+        this.image = enemy_dino;
+        this.speedX = Math.random() + 2;
+        this.speedY = 0;
+        this.maxFrame = 11;
     }
 }
 

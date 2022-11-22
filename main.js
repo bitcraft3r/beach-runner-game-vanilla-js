@@ -1,7 +1,7 @@
 import { Player } from './helpers/player.js'
 import { InputHandler } from './helpers/input.js'
 import { Background } from './helpers/background.js'
-import { GroundEnemy } from './helpers/enemies.js'
+import { GroundEnemy, DinoEnemy } from './helpers/enemies.js'
 import { Coin } from './helpers/coins.js'
 import { UI } from './helpers/UI.js'
 
@@ -112,6 +112,7 @@ window.addEventListener('load', function(){
         }
         addEnemy(){
             if (this.speed > 0 && Math.random() < 0.5) this.enemies.push(new GroundEnemy(this));
+            else if (this.speed > 0) this.enemies.push (new DinoEnemy(this));
             // else if (this.speed > 0) this.enemies.push (new ClimbingEnemy(this));
             // this.enemies.push(new Coin(this));
         }
