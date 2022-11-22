@@ -60,7 +60,7 @@ export class Jumping extends State {
     constructor(game){
         super('JUMPING', game);    }
     enter(){
-        if (this.game.player.onGround()) this.game.player.vy -= 27;
+        if (this.game.player.onGround()) this.game.player.vy -= 22;
         // this.game.player.frameX = 0;
         this.game.player.width = 1724/16;
         this.game.player.maxFrame = 15;
@@ -111,7 +111,7 @@ export class Attacking extends State {
         } else if (!input.includes('Enter') && !this.game.player.onGround()){
             this.game.player.setState(states.FALLING, 1);
         } else if (input.includes('Enter') && input.includes('ArrowUp') && this.game.player.onGround()) {
-            this.game.player.vy -= 27;
+            this.game.player.vy -= 25;
         } else if (input.includes('ArrowDown') && !this.game.player.onGround()){
             this.game.player.setState(states.DIVING, 0);
         }
@@ -126,7 +126,7 @@ export class Diving extends State {
         this.game.player.width = 1375/11;
         this.game.player.maxFrame = 10;
         this.game.player.frameY = 4;
-        this.game.player.vy = 15;
+        this.game.player.vy = 20;
     }
     handleInput(input){
         this.game.particles.unshift(new Fire(this.game, this.game.player.x + this.game.player.width * 0.5, this.game.player.y + this.game.player.height * 0.5));

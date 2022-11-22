@@ -34,11 +34,11 @@ export class Coin extends Item {
         this.width = 80;
         this.height = 80;
         this.x = this.game.width;
-        this.y = this.game.height/4;
-        this.image = nft;
+        this.y = this.game.height/5;
+        this.image = coin;
         this.speedX = 0;
         this.speedY = 0;
-        this.maxFrame = 0;
+        this.maxFrame = 9;
     }
 }
 

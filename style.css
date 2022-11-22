@@ -41,6 +41,6 @@ button {
     left: 20%;
 }
 
-#player, #layer1, #layer2, #layer3, #layer4, #layer5, #layer6, #enemy_fly, #enemy_plant, #enemy_spider, #fire, #collisionAnimation, #lives, #nft {
+#player, #layer1, #layer2, #layer3, #layer4, #layer5, #layer6, #enemy_fly, #enemy_plant, #enemy_spider, #fire, #collisionAnimation, #lives, #coin {
     display: none;
 }
