@@ -1,4 +1,4 @@
-class Enemy {
+class Item {
     constructor(){
         this.frameX = 0;
         this.frameY = 0;
@@ -27,58 +27,20 @@ class Enemy {
     }
 }
 
-// export class FlyingEnemy extends Enemy {
-//     constructor(game){
-//         super();
-//         this.game = game;
-//         this.width = 1165/20;
-//         this.height = 50;
-//         this.x = this.game.width + Math.random() * this.game.width * 0.5;
-//         this.y = Math.random() * this.game.height * 0.5;
-//         this.speedX = Math.random() + 1;
-//         this.speedY = 0;
-//         this.maxFrame = 5;
-//         this.image = enemy_fly;
-//         this.angle = 0;
-//         this.va = Math.random() * 0.1 + 0.1; // Velocity of Angle, between 0.1-0.2
-//     }
-//     update(deltaTime){
-//         super.update(deltaTime);
-//         this.angle += this.va;
-//         // passing a slowly increasing angle to Math.sin() will map positions of our enemies along a `sine wave`.
-//         this.y += Math.sin(this.angle);
-//     }
-// }
-
-export class GroundEnemy extends Enemy {
+export class Coin extends Item {
     constructor(game){
         super();
         this.game = game;
-        this.width = 100;
-        this.height = 100;
+        this.width = 80;
+        this.height = 80;
         this.x = this.game.width;
-        this.y = this.game.height - this.height - this.game.groundMargin;
-        this.image = enemy_plant;
-        this.speedX = Math.random() + 2;
+        this.y = this.game.height/4;
+        this.image = nft;
+        this.speedX = 0;
         this.speedY = 0;
-        this.maxFrame = 4;
+        this.maxFrame = 0;
     }
 }
-
-// export class Coin extends Enemy {
-//     constructor(game){
-//         super();
-//         this.game = game;
-//         this.width = 1165/20;
-//         this.height = 50;
-//         this.x = this.game.width;
-//         this.y = this.game.height/4;
-//         this.image = enemy_fly;
-//         this.speedX = 0;
-//         this.speedY = 0;
-//         this.maxFrame = 5;
-//     }
-// }
 
 // export class ClimbingEnemy extends Enemy {
 //     constructor(game){

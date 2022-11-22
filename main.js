@@ -1,7 +1,8 @@
 import { Player } from './helpers/player.js'
 import { InputHandler } from './helpers/input.js'
 import { Background } from './helpers/background.js'
-import { GroundEnemy, Coin } from './helpers/enemies.js'
+import { GroundEnemy } from './helpers/enemies.js'
+import { Coin } from './helpers/coins.js'
 import { UI } from './helpers/UI.js'
 
 window.addEventListener('load', function(){
@@ -25,9 +26,12 @@ window.addEventListener('load', function(){
             this.particles = [];
             this.collisions = [];
             this.floatingMessages = [];
+            this.coins = [];
             this.maxParticles = 50;
             this.enemyTimer = 0;
             this.enemyInterval = 1000;
+            this.coinTimer = 0;
+            this.coinInterval = 1000;
             this.debug = false;
             this.score = 0;
             this.winningScore = 40;
@@ -53,6 +57,16 @@ window.addEventListener('load', function(){
             }
             this.enemies.forEach(enemy => {
                 enemy.update(deltaTime);
+            });
+            // handle coins 
+            if (this.coinTimer > this.coinInterval) {
+                this.addCoin();
+                this.coinTimer = 0;
+            } else {
+                this.coinTimer += deltaTime;
+            }
+            this.coins.forEach(coin => {
+                coin.update(deltaTime);
             });
             // handle messages
             this.floatingMessages.forEach(message => {
@@ -81,6 +95,9 @@ window.addEventListener('load', function(){
             this.enemies.forEach(enemy => {
                 enemy.draw(context);
             });
+            this.coins.forEach(coin => {
+                coin.draw(context);
+            });
             this.particles.forEach(particle => {
                 particle.draw(context);
             });
@@ -95,8 +112,10 @@ window.addEventListener('load', function(){
         addEnemy(){
             if (this.speed > 0 && Math.random() < 0.5) this.enemies.push(new GroundEnemy(this));
             // else if (this.speed > 0) this.enemies.push (new ClimbingEnemy(this));
-            else if (this.speed > 0) this.enemies.push (new Coin(this));
             // this.enemies.push(new Coin(this));
+        }
+        addCoin(){
+            if (this.speed > 0) this.coins.push (new Coin(this));
         }
     }
 
