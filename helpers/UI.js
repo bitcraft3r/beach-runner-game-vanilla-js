@@ -52,20 +52,30 @@ export class UI {
             context.fillText(`Someone's on the run. What happened?`, 450, 250)
             context.font = this.fontSize * 0.8 + 'px ' + this.fontFamily;
             context.fillStyle = "#000000"
-            context.fillText(`Press LEFT/RIGHT arrow to start`, 450, 350)
+            context.fillText(`Press LEFT/RIGHT arrow to START`, 450, 350)
+        } else if (this.game.gameStarted === true && this.game.score === 0){
+            context.textAlign = 'center';
+            context.font = this.fontSize * 0.8 + 'px ' + this.fontFamily;
+            context.fillText('Press SPACE or UP arrow to JUMP!', this.game.width * 0.5, this.game.height * 0.5 - 20);
         }
+
+
 
         if (this.game.currentLevel === 2 && this.game.score === 25){
             context.textAlign = 'center';
             context.font = this.fontSize * 2 + 'px ' + this.fontFamily;
+            context.fillStyle = "#ff0000"
             context.fillText('LEVEL 2!', this.game.width * 0.5, this.game.height * 0.5 - 20);
             context.font = this.fontSize * 0.7 + 'px ' + this.fontFamily;
+            context.fillStyle = "#000000"
             context.fillText(`Look out for those flying... sandwiches?`, this.game.width * 0.5, this.game.height * 0.5 + 20);
         } else if (this.game.currentLevel === 3 && this.game.score === 100){
             context.textAlign = 'center';
             context.font = this.fontSize * 2 + 'px ' + this.fontFamily;
+            context.fillStyle = "#ff0000"
             context.fillText('LEVEL 3!', this.game.width * 0.5, this.game.height * 0.5 - 20);
             context.font = this.fontSize * 0.7 + 'px ' + this.fontFamily;
+            context.fillStyle = "#000000"
             context.fillText(`It's a bird, it's a plane, wait...`, this.game.width * 0.5, this.game.height * 0.5 + 20);
         }
 

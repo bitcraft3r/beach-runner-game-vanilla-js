@@ -15,10 +15,10 @@ export class FloatingMessage {
         if (this.timer > 100) this.markedForDeletion = true;
     }
     draw(context){
-        context.font = '30px VT323';
+        context.font = '35px VT323';
         context.fillStyle = 'white';
         context.fillText(this.value, this.x, this.y);
-        context.fillStyle = 'black';
+        context.fillStyle = 'red';
         context.fillText(this.value, this.x+2, this.y+2);
     }
 }
