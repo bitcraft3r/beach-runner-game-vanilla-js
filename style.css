@@ -41,10 +41,6 @@ button {
     left: 20%;
 }
 
-#player, #layer1, #layer2, #layer3, #layer4, #layer5, #layer6, #enemy_dino, #enemy_snail, #enemy_afro, #enemy_afro_big, #enemy_ufo, #enemy_obelisk, #fire, #collisionAnimation, #lives, #coin, #heart_sprite {
+#player, #layer1, #layer2, #layer3, #layer4, #layer5, #layer6, #enemy_dino, #enemy_snail, #enemy_afro_big, #enemy_ufo, #enemy_obelisk, #fire, #collisionAnimation, #lives, #coin, #heart_sprite {
     display: none;
 }
-
-/* #enemy_spider, #L2Layer1, #L2Layer2, #L2Layer3 {
-  display: none;
-} */

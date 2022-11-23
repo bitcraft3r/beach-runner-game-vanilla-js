@@ -181,7 +181,7 @@ window.addEventListener('load', function(){
     let lastTime = 0;
 
     function animate(timeStamp){
-        if (game.input.keys.includes('ArrowLeft') || game.input.keys.includes('ArrowRight')){
+        if (game.gameStarted === false && game.input.keys.includes('ArrowLeft') || game.gameStarted === false && game.input.keys.includes('ArrowRight')){
             game.gameStarted = true;
         }
         const deltaTime = timeStamp - lastTime;
@@ -192,4 +192,7 @@ window.addEventListener('load', function(){
         if (!game.gameOver) requestAnimationFrame(animate);
     }
     animate(0);
+    var backgroundSound = new Audio('../assets/jingle-bells.mp3');
+    backgroundSound.loop = true;
+    backgroundSound.play();
 });

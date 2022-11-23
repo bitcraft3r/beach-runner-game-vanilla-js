@@ -28,7 +28,6 @@ class Item {
             context.beginPath();
             context.arc(this.x + this.width/2, this.y + this.height/2, this.width/2, 0, Math.PI * 2);
             context.stroke();
-            // context.strokeRect(this.x, this.y, this.width, this.height);
         } 
         context.drawImage(this.image, this.width*this.frameX,0,this.width,this.height, this.x,this.y,this.width,this.height)
     }
@@ -48,30 +47,3 @@ export class Coin extends Item {
         this.maxFrame = 9;
     }
 }
-
-// export class ClimbingEnemy extends Enemy {
-//     constructor(game){
-//         super();
-//         this.game = game;
-//         this.width = 120;
-//         this.height = 144;
-//         this.x = this.game.width;
-//         this.y = Math.random() * this.game.height * 0.5;
-//         this.image = enemy_spider;
-//         this.speedX = 0;
-//         this.speedY = Math.random() < 0.5 ? 1 : -1; // if true ? return : else return
-//         this.maxFrame = 5;
-//     }
-//     update(deltaTime){
-//         super.update(deltaTime);
-//         if (this.y > this.game.height - this.height - this.game.groundMargin) this.speedY *= -1;
-//         if (this.y < -this.height) this.markedForDeletion = true;
-//     }
-//     draw(context){
-//         super.draw(context);
-//         context.beginPath(); // draw line
-//         context.moveTo(this.x + this.width/2, 0);
-//         context.lineTo(this.x + this.width/2, this.y + 50);
-//         context.stroke();
-//     }
-// }

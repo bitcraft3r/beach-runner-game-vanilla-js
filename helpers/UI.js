@@ -19,9 +19,6 @@ export class UI {
         // timer
         context.font = this.fontSize * 0.8 + 'px ' + this.fontFamily;
         context.fillText('Time: ' + (this.game.time * 0.001).toFixed(1), 20, 80);
-        // // start
-        // context.fillText(`Press LEFT or RIGHT arrow key to Start!`, 200, 250)
-
         // lives
         for (let i=0; i<this.game.lives; i++){
             context.drawImage(this.livesImage, 30*i+20, 95, 25, 25)
@@ -97,36 +94,3 @@ export class UI {
         context.restore();
     }
 }
-
-// export class StartMessage {
-//     constructor(game){
-//         this.game = game;
-//         this.fontSize = 40;
-//         this.fontFamily = 'VT323';
-//     }
-//     draw(context){
-//         context.save();
-//         context.shadowOffsetX = 2;
-//         context.shadowOffsetY = 2;
-//         context.shadowColor = 'white';
-//         context.shadowBlur = 0;
-//         context.font = this.fontSize + 'px ' + this.fontFamily;
-//         context.textAlign = 'left';
-//         context.fillStyle = this.game.fontColor;
-//         // score
-//         context.fillText(`Score: ${this.game.score}`, 20, 50);
-//         // start
-//         if (this.gameStart === false){
-//             context.shadowOffsetX = 2;
-//             context.shadowOffsetY = 2;
-//             context.shadowColor = 'white';
-//             context.shadowBlur = 0;
-//             context.fillStyle = this.game.fontColor;
-            
-//             context.textAlign = 'center';
-//             context.font = this.fontSize + 'px ' + this.fontFamily;
-//             context.fillText(`Press LEFT or RIGHT arrow key to Start!`, 450, 200)
-//         }
-//         context.restore();
-//     }
-// }
