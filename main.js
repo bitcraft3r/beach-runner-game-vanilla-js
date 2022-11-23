@@ -1,7 +1,7 @@
 import { Player } from './helpers/player.js'
 import { InputHandler } from './helpers/input.js'
 import { Background } from './helpers/background.js'
-import { AfroEnemy, DinoEnemy, ClimbingEnemy, FlyingEnemy } from './helpers/enemies.js'
+import { SnailEnemy, AfroEnemy, DinoEnemy, ClimbingEnemy, FlyingEnemy } from './helpers/enemies.js'
 import { Coin } from './helpers/coins.js'
 import { Heart } from './helpers/hearts.js'
 import { UI } from './helpers/UI.js'
@@ -39,12 +39,12 @@ window.addEventListener('load', function(){
             this.heartInterval = 7777;
             this.debug = false;
             this.score = 0;
-            this.winningScore = 50;
+            this.winningScore = 100;
             this.fontColor = 'black';
             this.time = 0;
             this.gameStarted = false;
             this.currentLevel = 1;
-            this.maxTime = 100000;
+            this.maxTime = 1000000;
             this.gameOver = false;
             this.lives = 3;
             this.player.currentState = this.player.states[0];
@@ -52,7 +52,10 @@ window.addEventListener('load', function(){
         }
         update(deltaTime){
             if (this.gameStarted === true) this.time += deltaTime;
-            if (this.time > this.maxTime) this.gameOver = true;
+            if (this.time > this.maxTime){
+                this.gameOver = true;
+
+            } 
             if (this.score === 25){
                 this.currentLevel = 2;
                 console.log(`updated level to 2`)
@@ -60,6 +63,10 @@ window.addEventListener('load', function(){
             if (this.score === 100){
                 this.currentLevel = 3;
                 console.log(`updated level to 3`)
+            } 
+            if (this.score === 150){
+                this.currentLevel = 4;
+                console.log(`updated level to 4`)
             } 
             this.background.update();
             this.player.update(this.input.keys, deltaTime);
@@ -142,17 +149,24 @@ window.addEventListener('load', function(){
         addEnemy(){
             if (this.currentLevel === 1){
 
-                if (this.speed > 0 && Math.random() < 0.5) this.enemies.push(new AfroEnemy(this));
+                if (this.speed > 0 && Math.random() < 0.5) this.enemies.push(new SnailEnemy(this));
                 else if (this.speed > 0) this.enemies.push (new DinoEnemy(this));
             } else if (this.currentLevel === 2){
-                if (this.speed > 0 && Math.random() < 0.5) this.enemies.push(new AfroEnemy(this));
+                if (this.speed > 0 && Math.random() < 0.5) this.enemies.push(new SnailEnemy(this));
                 else if (this.speed > 0) this.enemies.push (new DinoEnemy(this));
                 this.enemies.push(new FlyingEnemy(this));
             } else if (this.currentLevel === 3){
-                if (this.speed > 0 && Math.random() > 2/3) this.enemies.push(new AfroEnemy(this));
+                if (this.speed > 0 && Math.random() > 2/3) this.enemies.push(new SnailEnemy(this));
                 else if (this.speed > 0 && Math.random () < 1/3) this.enemies.push (new DinoEnemy(this));
                 else if (this.speed > 0) this.enemies.push (new ClimbingEnemy(this));
                 this.enemies.push(new FlyingEnemy(this));
+            } else if (this.currentLevel ===4){
+                if (this.speed > 0 && Math.random() > 1/2) this.enemies.push(new SnailEnemy(this));
+                else if (this.speed > 0) this.enemies.push (new DinoEnemy(this));
+                // else if (this.speed > 0) this.enemies.push (new ClimbingEnemy(this));
+                if (this.speed > 0) this.enemies.push(new AfroEnemy(this));
+                this.enemies.push(new FlyingEnemy(this));
+
             }
         }
         addCoin(){

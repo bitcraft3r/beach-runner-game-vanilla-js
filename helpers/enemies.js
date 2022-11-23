@@ -35,16 +35,31 @@ class Enemy {
 }
 
 
+export class SnailEnemy extends Enemy {
+    constructor(game){
+        super();
+        this.game = game;
+        this.width = 1099/10;
+        this.height = 80;
+        this.x = this.game.width;
+        this.y = this.game.height - this.height - this.game.groundMargin;
+        this.image = enemy_snail;
+        this.speedX = Math.random() + 1.5;
+        this.speedY = 0;
+        this.maxFrame = 9;
+    }
+}
+
 export class AfroEnemy extends Enemy {
     constructor(game){
         super();
         this.game = game;
-        this.width = 100;
-        this.height = 100;
-        this.x = this.game.width;
+        this.width = 160;
+        this.height = 160;
+        this.x = this.game.width * (Math.random() + 1);
         this.y = this.game.height - this.height - this.game.groundMargin;
-        this.image = enemy_afro;
-        this.speedX = Math.random() + 3;
+        this.image = enemy_afro_big;
+        this.speedX = (Math.random() + 3.5) * 1.5;
         this.speedY = 0;
         this.maxFrame = 4;
     }
@@ -59,7 +74,7 @@ export class DinoEnemy extends Enemy {
         this.x = this.game.width;
         this.y = this.game.height - this.height - this.game.groundMargin;
         this.image = enemy_dino;
-        this.speedX = Math.random() + 2;
+        this.speedX = (Math.random() + 2) * 1.5;
         this.speedY = 0;
         this.maxFrame = 11;
     }

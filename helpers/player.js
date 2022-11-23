@@ -124,11 +124,15 @@ export class Player {
                 coin.markedForDeletion = true;
                 this.game.collisions.push(new CollisionAnimation(this.game, coin.x + coin.width * 0.5, coin.y + coin.height * 0.5));
                 this.game.score += 5;
-                if (this.game.score === 25){
+                if (this.game.score === 50){
                     var levelUpSound = new Audio('../assets/level_up.wav');
                     levelUpSound.loop = false;
                     levelUpSound.play();
                 } else if (this.game.score === 100){
+                    var levelUpSound = new Audio('../assets/level_up.wav');
+                    levelUpSound.loop = false;
+                    levelUpSound.play();
+                } else if (this.game.score === 150){
                     var levelUpSound = new Audio('../assets/level_up.wav');
                     levelUpSound.loop = false;
                     levelUpSound.play();

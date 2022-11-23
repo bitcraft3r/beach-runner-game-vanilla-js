@@ -31,13 +31,20 @@ export class UI {
             context.textAlign = 'center';
             context.font = this.fontSize * 2 + 'px ' + this.fontFamily;
             if (this.game.score > this.game.winningScore){
+                var levelUpSound = new Audio('../assets/level_up.wav');
+                levelUpSound.loop = false;
+                levelUpSound.play();
+                context.fillStyle = "#ff0000"
                 context.fillText('HO! HO! HO!', this.game.width * 0.5, this.game.height * 0.5 - 20);
                 context.font = this.fontSize * 0.7 + 'px ' + this.fontFamily;
+                context.fillStyle = "#000000"
                 context.fillText(`Who's been a good boy this year? YOU!!!`, this.game.width * 0.5, this.game.height * 0.5 + 20);
             }
              else {
+                context.fillStyle = "#ff0000"
                 context.fillText('Tis the season to be...', this.game.width * 0.5, this.game.height * 0.5 - 20);
                 context.font = this.fontSize * 0.7 + 'px ' + this.fontFamily;
+                context.fillStyle = "#000000"
                 context.fillText('Nope. Better luck next time!', this.game.width * 0.5, this.game.height * 0.5 + 20);
             }
         }
@@ -46,10 +53,10 @@ export class UI {
             context.textAlign = 'center';
             context.font = this.fontSize * 2 + 'px ' + this.fontFamily;
             context.fillStyle = "#ff0000"
-            context.fillText(`BANKIN' BAHAMAS!`, 450, 200)
+            context.fillText(`RUN BAHAMAS!`, 450, 200)
             context.font = this.fontSize * 1 + 'px ' + this.fontFamily;
             context.fillStyle = "#000000"
-            context.fillText(`Someone's on the run. What happened?`, 450, 250)
+            context.fillText(`Help Santa get his coins back!`, 450, 250)
             context.font = this.fontSize * 0.8 + 'px ' + this.fontFamily;
             context.fillStyle = "#000000"
             context.fillText(`Press LEFT/RIGHT arrow to START`, 450, 350)
@@ -61,7 +68,7 @@ export class UI {
 
 
 
-        if (this.game.currentLevel === 2 && this.game.score === 25 && this.game.gameOver === false){
+        if (this.game.currentLevel === 2 && this.game.score === 50 && this.game.gameOver === false){
             context.textAlign = 'center';
             context.font = this.fontSize * 2 + 'px ' + this.fontFamily;
             context.fillStyle = "#ff0000"
@@ -77,7 +84,15 @@ export class UI {
             context.font = this.fontSize * 0.7 + 'px ' + this.fontFamily;
             context.fillStyle = "#000000"
             context.fillText(`It's a bird, it's a plane, wait...`, this.game.width * 0.5, this.game.height * 0.5 + 20);
-        }
+        } else if (this.game.currentLevel === 4 && this.game.score === 150 && this.game.gameOver === false){
+            context.textAlign = 'center';
+            context.font = this.fontSize * 2 + 'px ' + this.fontFamily;
+            context.fillStyle = "#ff0000"
+            context.fillText('FINAL LEVEL!', this.game.width * 0.5, this.game.height * 0.5 - 20);
+            context.font = this.fontSize * 0.7 + 'px ' + this.fontFamily;
+            context.fillStyle = "#000000"
+            context.fillText(`Watch out for that AFRO!`, this.game.width * 0.5, this.game.height * 0.5 + 20);
+        } 
 
         context.restore();
     }
