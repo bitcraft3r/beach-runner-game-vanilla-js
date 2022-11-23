@@ -37,6 +37,7 @@ window.addEventListener('load', function(){
             this.winningScore = 50;
             this.fontColor = 'black';
             this.time = 0;
+            this.gameStarted = false;
             this.maxTime = 30000;
             this.gameOver = false;
             this.lives = 3;
@@ -44,7 +45,7 @@ window.addEventListener('load', function(){
             this.player.currentState.enter();
         }
         update(deltaTime){
-            this.time += deltaTime;
+            if (this.gameStarted === true) this.time += deltaTime;
             if (this.time > this.maxTime) this.gameOver = true;
             this.background.update();
             this.player.update(this.input.keys, deltaTime);
@@ -125,6 +126,9 @@ window.addEventListener('load', function(){
     let lastTime = 0;
 
     function animate(timeStamp){
+        if (game.input.keys.includes('ArrowLeft') || game.input.keys.includes('ArrowRight')){
+            game.gameStarted = true;
+        }
         const deltaTime = timeStamp - lastTime;
         lastTime = timeStamp;
         ctx.clearRect(0,0,canvas.width,canvas.height);
