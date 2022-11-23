@@ -34,28 +34,6 @@ class Enemy {
     }
 }
 
-// export class FlyingEnemy extends Enemy {
-//     constructor(game){
-//         super();
-//         this.game = game;
-//         this.width = 1165/20;
-//         this.height = 50;
-//         this.x = this.game.width + Math.random() * this.game.width * 0.5;
-//         this.y = Math.random() * this.game.height * 0.5;
-//         this.speedX = Math.random() + 1;
-//         this.speedY = 0;
-//         this.maxFrame = 5;
-//         this.image = enemy_fly;
-//         this.angle = 0;
-//         this.va = Math.random() * 0.1 + 0.1; // Velocity of Angle, between 0.1-0.2
-//     }
-//     update(deltaTime){
-//         super.update(deltaTime);
-//         this.angle += this.va;
-//         // passing a slowly increasing angle to Math.sin() will map positions of our enemies along a `sine wave`.
-//         this.y += Math.sin(this.angle);
-//     }
-// }
 
 export class AfroEnemy extends Enemy {
     constructor(game){
@@ -87,20 +65,55 @@ export class DinoEnemy extends Enemy {
     }
 }
 
-// export class Coin extends Enemy {
-//     constructor(game){
-//         super();
-//         this.game = game;
-//         this.width = 1165/20;
-//         this.height = 50;
-//         this.x = this.game.width;
-//         this.y = this.game.height/4;
-//         this.image = enemy_fly;
-//         this.speedX = 0;
-//         this.speedY = 0;
-//         this.maxFrame = 5;
-//     }
-// }
+export class ClimbingEnemy extends Enemy {
+    constructor(game){
+        super();
+        this.game = game;
+        this.width = 975/13;
+        this.height = 150;
+        this.x = this.game.width;
+        this.y = Math.random() * this.game.height * 0.5;
+        this.image = enemy_obelisk;
+        this.speedX = 0;
+        this.speedY = Math.random() < 0.5 ? 1 : -1; // if true ? return : else return
+        this.maxFrame = 12;
+    }
+    update(deltaTime){
+        super.update(deltaTime);
+        if (this.y > this.game.height - this.height - this.game.groundMargin) this.speedY *= -1.5;
+        if (this.y < -this.height) this.markedForDeletion = true;
+    }
+    draw(context){
+        super.draw(context);
+        // context.beginPath(); // draw line
+        // context.moveTo(this.x + this.width/2, 0);
+        // context.lineTo(this.x + this.width/2, this.y + 50);
+        // context.stroke();
+    }
+}
+
+export class FlyingEnemy extends Enemy {
+    constructor(game){
+        super();
+        this.game = game;
+        this.width = 1165/20;
+        this.height = 50;
+        this.x = this.game.width + Math.random() * this.game.width * 0.5;
+        this.y = Math.random() * this.game.height * 0.15;
+        this.speedX = Math.random() + 1;
+        this.speedY = 0;
+        this.maxFrame = 5;
+        this.image = enemy_ufo;
+        this.angle = 0;
+        this.va = Math.random() * 0.1 + 0.1; // Velocity of Angle, between 0.1-0.2
+    }
+    update(deltaTime){
+        super.update(deltaTime);
+        this.angle += this.va;
+        // passing a slowly increasing angle to Math.sin() will map positions of our enemies along a `sine wave`.
+        this.y += Math.sin(this.angle);
+    }
+}
 
 // export class ClimbingEnemy extends Enemy {
 //     constructor(game){
@@ -122,9 +135,9 @@ export class DinoEnemy extends Enemy {
 //     }
 //     draw(context){
 //         super.draw(context);
-//         context.beginPath(); // draw line
-//         context.moveTo(this.x + this.width/2, 0);
-//         context.lineTo(this.x + this.width/2, this.y + 50);
-//         context.stroke();
+//         // context.beginPath(); // draw line
+//         // context.moveTo(this.x + this.width/2, 0);
+//         // context.lineTo(this.x + this.width/2, this.y + 50);
+//         // context.stroke();
 //     }
 // }

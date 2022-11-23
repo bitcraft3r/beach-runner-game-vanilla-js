@@ -118,7 +118,7 @@ export class Player {
                 window.totalGweiScore = this.game.score;
                 this.game.floatingMessages.push(new FloatingMessage('+5', coin.x, coin.y, 150, 46));
                 
-                this.game.maxSpeed += 1;
+                this.game.maxSpeed += 0.5; // adjust speed increase per get coin
 
             }
         })

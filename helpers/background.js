@@ -38,6 +38,18 @@ export class Background {
         this.backgroundLayers = [this.layer1, this.layer6, this.layer3, this.layer4, this.layer2, this.layer5];
     }
     update(){
+        // // if (this.game.background){
+        // if (this.game.currentLevel === 2){
+        //     this.width = 512;
+        //     this.height = 192;
+        //     this.layerImage1 = L2Layer1;
+        //     this.layerImage2 = L2Layer2;
+        //     this.layerImage3 = L2Layer3;
+        //     this.layer1 = new Layer(this.game, this.width, this.height, 5, this.layerImage1)
+        //     this.layer2 = new Layer(this.game, this.width, this.height, 11, this.layerImage2)
+        //     this.layer3 = new Layer(this.game, this.width, this.height, 22, this.layerImage3)
+        //     this.backgroundLayers = [this.layer1, this.layer2, this.layer3];
+        // }
         this.backgroundLayers.forEach(layer => {
             layer.update();
         })
