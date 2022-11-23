@@ -53,7 +53,7 @@ export class UI {
             context.font = this.fontSize * 0.8 + 'px ' + this.fontFamily;
             context.fillStyle = "#000000"
             context.fillText(`Press LEFT/RIGHT arrow to START`, 450, 350)
-        } else if (this.game.gameStarted === true && this.game.score === 0){
+        } else if (this.game.gameStarted === true && this.game.score === 0 && this.game.gameOver === false){
             context.textAlign = 'center';
             context.font = this.fontSize * 0.8 + 'px ' + this.fontFamily;
             context.fillText('Press SPACE or UP arrow to JUMP!', this.game.width * 0.5, this.game.height * 0.5 - 20);
@@ -61,7 +61,7 @@ export class UI {
 
 
 
-        if (this.game.currentLevel === 2 && this.game.score === 25){
+        if (this.game.currentLevel === 2 && this.game.score === 25 && this.game.gameOver === false){
             context.textAlign = 'center';
             context.font = this.fontSize * 2 + 'px ' + this.fontFamily;
             context.fillStyle = "#ff0000"
@@ -69,7 +69,7 @@ export class UI {
             context.font = this.fontSize * 0.7 + 'px ' + this.fontFamily;
             context.fillStyle = "#000000"
             context.fillText(`Look out for those flying... sandwiches?`, this.game.width * 0.5, this.game.height * 0.5 + 20);
-        } else if (this.game.currentLevel === 3 && this.game.score === 100){
+        } else if (this.game.currentLevel === 3 && this.game.score === 100 && this.game.gameOver === false){
             context.textAlign = 'center';
             context.font = this.fontSize * 2 + 'px ' + this.fontFamily;
             context.fillStyle = "#ff0000"
