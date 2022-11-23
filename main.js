@@ -22,6 +22,7 @@ window.addEventListener('load', function(){
             this.player = new Player(this);
             this.input = new InputHandler(this);
             this.UI = new UI(this);
+            // this.startMessage = new StartMessage(this);
             this.enemies = [];
             this.particles = [];
             this.collisions = [];
@@ -110,6 +111,7 @@ window.addEventListener('load', function(){
                 message.draw(context);
             });
             this.UI.draw(context);
+            // this.startMessage.draw(context);
         }
         addEnemy(){
             if (this.speed > 0 && Math.random() < 0.5) this.enemies.push(new AfroEnemy(this));
