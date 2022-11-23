@@ -41,7 +41,7 @@ button {
     left: 20%;
 }
 
-#player, #layer1, #layer2, #layer3, #layer4, #layer5, #layer6, #enemy_dino, #enemy_afro, #enemy_ufo, #enemy_obelisk, #fire, #collisionAnimation, #lives, #coin {
+#player, #layer1, #layer2, #layer3, #layer4, #layer5, #layer6, #enemy_dino, #enemy_afro, #enemy_ufo, #enemy_obelisk, #fire, #collisionAnimation, #lives, #coin, #heart_sprite {
     display: none;
 }
 

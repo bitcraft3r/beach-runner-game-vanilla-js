@@ -3,6 +3,7 @@ import { InputHandler } from './helpers/input.js'
 import { Background } from './helpers/background.js'
 import { AfroEnemy, DinoEnemy, ClimbingEnemy, FlyingEnemy } from './helpers/enemies.js'
 import { Coin } from './helpers/coins.js'
+import { Heart } from './helpers/hearts.js'
 import { UI } from './helpers/UI.js'
 
 window.addEventListener('load', function(){
@@ -28,11 +29,14 @@ window.addEventListener('load', function(){
             this.collisions = [];
             this.floatingMessages = [];
             this.coins = [];
+            this.hearts = [];
             this.maxParticles = 50;
             this.enemyTimer = 0;
-            this.enemyInterval = 1500;
+            this.enemyInterval = 1555;
             this.coinTimer = 0;
-            this.coinInterval = 2000;
+            this.coinInterval = 2121;
+            this.heartTimer = 0;
+            this.heartInterval = 7777;
             this.debug = false;
             this.score = 0;
             this.winningScore = 50;
@@ -79,6 +83,16 @@ window.addEventListener('load', function(){
             this.coins.forEach(coin => {
                 coin.update(deltaTime);
             });
+            // handle hearts 
+            if (this.heartTimer > this.heartInterval && this.currentLevel > 1 && this.score > 50 ) {
+                this.addHeart();
+                this.heartTimer = 0;
+            } else {
+                this.heartTimer += deltaTime;
+            }
+            this.hearts.forEach(heart => {
+                heart.update(deltaTime);
+            });
             // handle messages
             this.floatingMessages.forEach(message => {
                 message.update();
@@ -97,6 +111,7 @@ window.addEventListener('load', function(){
             })
             this.enemies = this.enemies.filter(enemy => !enemy.markedForDeletion);
             this.coins = this.coins.filter(coin => !coin.markedForDeletion);
+            this.hearts = this.hearts.filter(heart => !heart.markedForDeletion);
             this.particles = this.particles.filter(particle => !particle.markedForDeletion);
             this.collisions = this.collisions.filter(collision => !collision.markedForDeletion);
             this.floatingMessages = this.floatingMessages.filter(message => !message.markedForDeletion);
@@ -110,6 +125,9 @@ window.addEventListener('load', function(){
             this.coins.forEach(coin => {
                 coin.draw(context);
             });
+            this.hearts.forEach(heart => {
+                heart.draw(context);
+            });
             this.particles.forEach(particle => {
                 particle.draw(context);
             });
@@ -120,7 +138,6 @@ window.addEventListener('load', function(){
                 message.draw(context);
             });
             this.UI.draw(context);
-            // this.startMessage.draw(context);
         }
         addEnemy(){
             if (this.currentLevel === 1){
@@ -140,6 +157,9 @@ window.addEventListener('load', function(){
         }
         addCoin(){
             if (this.speed > 0) this.coins.push (new Coin(this));
+        }
+        addHeart(){
+            if (this.speed > 0) this.hearts.push (new Heart(this));
         }
     }
 
