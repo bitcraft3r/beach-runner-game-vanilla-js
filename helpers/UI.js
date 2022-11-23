@@ -55,6 +55,20 @@ export class UI {
             context.fillText(`Press LEFT/RIGHT arrow to start`, 450, 350)
         }
 
+        if (this.game.currentLevel === 2 && this.game.score === 25){
+            context.textAlign = 'center';
+            context.font = this.fontSize * 2 + 'px ' + this.fontFamily;
+            context.fillText('LEVEL 2!', this.game.width * 0.5, this.game.height * 0.5 - 20);
+            context.font = this.fontSize * 0.7 + 'px ' + this.fontFamily;
+            context.fillText(`Look out for those flying... sandwiches?`, this.game.width * 0.5, this.game.height * 0.5 + 20);
+        } else if (this.game.currentLevel === 3 && this.game.score === 100){
+            context.textAlign = 'center';
+            context.font = this.fontSize * 2 + 'px ' + this.fontFamily;
+            context.fillText('LEVEL 3!', this.game.width * 0.5, this.game.height * 0.5 - 20);
+            context.font = this.fontSize * 0.7 + 'px ' + this.fontFamily;
+            context.fillText(`It's a bird, it's a plane, wait...`, this.game.width * 0.5, this.game.height * 0.5 + 20);
+        }
+
         context.restore();
     }
 }
