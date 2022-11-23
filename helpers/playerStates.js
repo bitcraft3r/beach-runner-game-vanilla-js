@@ -52,6 +52,11 @@ export class Running extends State {
             this.game.player.setState(states.IDLE, 0);
         } else if (input.includes(`ArrowUp`) || input.includes(` `)){
             this.game.player.setState(states.JUMPING, 1);
+            // and sound effect for jump
+            // https://stackoverflow.com/questions/32077459/play-sound-only-once
+            var jumpSound = new Audio('../assets/jump.wav');
+            jumpSound.loop = false;
+            jumpSound.play();
         } 
         // else if (input.includes('Enter')){
         //     this.game.player.setState(states.ATTACKING, 2);

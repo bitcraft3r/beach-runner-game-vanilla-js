@@ -83,6 +83,9 @@ export class Player {
                 // enemy.y < this.y + this.height &&
                 // enemy.y + enemy.height > this.y
             ){
+                var hitSound = new Audio('../assets/hit.mp3');
+                hitSound.loop = false;
+                hitSound.play();
                 enemy.markedForDeletion = true;
                 this.game.collisions.push(new CollisionAnimation(this.game, enemy.x + enemy.width * 0.5, enemy.y + enemy.height * 0.5));
                 // if (this.currentState === this.states[4] || this.currentState === this.states[5]){
@@ -97,6 +100,9 @@ export class Player {
                     if (this.game.lives <= 0) {
                         window.totalGweiScore = this.game.score
                         this.game.gameOver = true;
+                        var gameOverSound = new Audio('../assets/game_over.wav');
+                        gameOverSound.loop = false;
+                        gameOverSound.play();
                     // }
                 }
             } 
@@ -112,9 +118,21 @@ export class Player {
                 // coin.y < this.y + this.height &&
                 // coin.y + coin.height > this.y
             ){
+                var coinSound = new Audio('../assets/coin.wav');
+                coinSound.loop = false;
+                coinSound.play();
                 coin.markedForDeletion = true;
                 this.game.collisions.push(new CollisionAnimation(this.game, coin.x + coin.width * 0.5, coin.y + coin.height * 0.5));
                 this.game.score += 5;
+                if (this.game.score === 25){
+                    var levelUpSound = new Audio('../assets/level_up.wav');
+                    levelUpSound.loop = false;
+                    levelUpSound.play();
+                } else if (this.game.score === 100){
+                    var levelUpSound = new Audio('../assets/level_up.wav');
+                    levelUpSound.loop = false;
+                    levelUpSound.play();
+                }
                 window.totalGweiScore = this.game.score;
                 this.game.floatingMessages.push(new FloatingMessage('+5', coin.x, coin.y, 150, 46));
                 
@@ -129,6 +147,9 @@ export class Player {
             if (
                 distance < heart.width/2 + this.width/2
             ){
+                var heartSound = new Audio('../assets/heart.wav');
+                heartSound.loop = false;
+                heartSound.play();
                 heart.markedForDeletion = true;
                 this.game.collisions.push(new CollisionAnimation(this.game, heart.x + heart.width * 0.5, heart.y + heart.height * 0.5));
                 this.game.lives += 1;
