@@ -53,7 +53,7 @@ export class UI {
             context.fillText(`RUN BAHAMAS!`, 450, 200)
             context.font = this.fontSize * 1 + 'px ' + this.fontFamily;
             context.fillStyle = "#000000"
-            context.fillText(`Help Santa get his coins back!`, 450, 250)
+            context.fillText(`Help Samta get his coins back!`, 450, 250)
             context.font = this.fontSize * 0.8 + 'px ' + this.fontFamily;
             context.fillStyle = "#000000"
             context.fillText(`Swipe/Press LEFT/RIGHT to START`, 450, 350)
