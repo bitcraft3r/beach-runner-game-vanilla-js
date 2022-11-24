@@ -56,7 +56,7 @@ window.addEventListener('load', function(){
                 this.gameOver = true;
 
             } 
-            if (this.score === 25){
+            if (this.score === 50){
                 this.currentLevel = 2;
                 console.log(`updated level to 2`)
             } 
@@ -195,4 +195,19 @@ window.addEventListener('load', function(){
     var backgroundSound = new Audio('../assets/jingle-bells.mp3');
     backgroundSound.loop = true;
     backgroundSound.play();
+
+    const fullScreenButton = document.getElementById('fullScreenButton');
+
+    function toggleFullScreen(){
+        console.log(document.fullscreenElement);
+        if (!document.fullscreenElement){
+            canvas.requestFullscreen().catch(err => {
+                alert(`Error, can't enable full-screen mode: ${err.message}`);
+            });
+        } else {
+            document.exitFullscreen();
+        }
+    }
+    fullScreenButton.addEventListener('click', toggleFullScreen);
+
 });
