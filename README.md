@@ -1,6 +1,6 @@
 # Beach Runner Game (Vanilla JS)
 
-![Start Game Screen](https://user-images.githubusercontent.com/8282076/203489396-f0d1e696-834b-4c41-a29c-92b9e4711e20.png)
+![Start Game Screen](https://user-images.githubusercontent.com/8282076/203708126-00c20a31-8963-4642-a2fc-7cadefdf84da.png)
 
 ### Resources
 
