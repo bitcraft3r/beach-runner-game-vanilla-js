@@ -183,7 +183,9 @@ window.addEventListener('load', function(){
     function animate(timeStamp){
         if (game.gameStarted === false && game.input.keys.includes('ArrowLeft') || 
             game.gameStarted === false && game.input.keys.includes('ArrowRight') ||
-            game.gameStarted === false && game.input.keys.includes('swipe up')
+            game.gameStarted === false && game.input.keys.includes('swipe left') ||
+            game.gameStarted === false && game.input.keys.includes('swipe right')
+
         ){
             game.gameStarted = true;
         }
