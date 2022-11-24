@@ -1,0 +1,22 @@
+{
+    "name" : "Beach UFO",
+    "description": "Someone's on the run. What happened?",
+    "image" : "https://gateway.pinata.cloud/ipfs/QmQ46poNfgA1p8AGqi8RGtqv1CL96SQQDmn3SJdaVvW3dc/beach_ufo.png",
+    "attributes": [
+        {
+            "trait_type": "Strength",
+            "value": 2,
+            "max_value": 10
+        },
+        {
+            "trait_type": "Speed",
+            "value": 5,
+            "max_value": 10
+        },
+        {
+            "trait_type": "Intelligence",
+            "value": 8,
+            "max_value": 10
+        }
+    ]
+}

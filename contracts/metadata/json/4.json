@@ -1,0 +1,22 @@
+{
+    "name" : "Beach Broccoli",
+    "description": "Someone's on the run. What happened?",
+    "image" : "https://gateway.pinata.cloud/ipfs/QmQ46poNfgA1p8AGqi8RGtqv1CL96SQQDmn3SJdaVvW3dc/beach_broccoli.png",
+    "attributes": [
+        {
+            "trait_type": "Strength",
+            "value": 3,
+            "max_value": 10
+        },
+        {
+            "trait_type": "Speed",
+            "value": 7,
+            "max_value": 10
+        },
+        {
+            "trait_type": "Intelligence",
+            "value": 3,
+            "max_value": 10
+        }
+    ]
+}

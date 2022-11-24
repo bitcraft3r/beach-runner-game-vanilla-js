@@ -1,0 +1,22 @@
+{
+    "name" : "Beach Dino",
+    "description": "Someone's on the run. What happened?",
+    "image" : "https://gateway.pinata.cloud/ipfs/QmQ46poNfgA1p8AGqi8RGtqv1CL96SQQDmn3SJdaVvW3dc/beach_dino.png",
+    "attributes": [
+        {
+            "trait_type": "Strength",
+            "value": 7,
+            "max_value": 10
+        },
+        {
+            "trait_type": "Speed",
+            "value": 7,
+            "max_value": 10
+        },
+        {
+            "trait_type": "Intelligence",
+            "value": 4,
+            "max_value": 10
+        }
+    ]
+}
