@@ -4,7 +4,7 @@ export class InputHandler {
         this.keys = [];
         this.touchY = '';
         this.touchX = '';
-        this.touchThreshold = 10;
+        this.touchThreshold = 15;
         window.addEventListener('keydown', (e) => {
             if ((   e.key === 'ArrowDown' || 
                     e.key === 'ArrowUp' ||
@@ -16,7 +16,7 @@ export class InputHandler {
                 this.keys.push(e.key);
             } else if (e.key === 'd') this.game.debug = !this.game.debug;
             // else if (e.key === 'Enter' && this.game.gameOver) restartGame();
-            console.log(e.key, this.keys);
+            // console.log(e.key, this.keys);
         });
         window.addEventListener('keyup', (e) => {
             if (    e.key === 'ArrowDown' || 
@@ -27,7 +27,7 @@ export class InputHandler {
                     e.key === ' '){
                 this.keys.splice(this.keys.indexOf(e.key), 1);
             }
-            console.log(e.key, this.keys);
+            // console.log(e.key, this.keys);
         });
         window.addEventListener('touchstart', e => { // runs once // used to set something up
             this.touchY = e.changedTouches[0].pageY;

@@ -46,7 +46,7 @@ export class Running extends State {
     }
     handleInput(input){
         this.game.particles.push(new Dust(this.game, this.game.player.x + this.game.player.width * 0.6, this.game.player.y + this.game.player.height));
-        if (input.includes(`ArrowDown`) || input.includes('swipe down')){
+        if (input.includes(`ArrowDown`)){
             this.game.player.setState(states.IDLE, 0);
         } else if (input.includes(`ArrowUp`) || input.includes(` `) || input.includes('swipe up')){
             this.game.player.setState(states.JUMPING, 1);

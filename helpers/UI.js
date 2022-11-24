@@ -56,11 +56,11 @@ export class UI {
             context.fillText(`Help Santa get his coins back!`, 450, 250)
             context.font = this.fontSize * 0.8 + 'px ' + this.fontFamily;
             context.fillStyle = "#000000"
-            context.fillText(`Press LEFT/RIGHT arrow to START`, 450, 350)
+            context.fillText(`Swipe/Press LEFT/RIGHT to START`, 450, 350)
         } else if (this.game.gameStarted === true && this.game.score === 0 && this.game.gameOver === false){
             context.textAlign = 'center';
             context.font = this.fontSize * 0.8 + 'px ' + this.fontFamily;
-            context.fillText('Press SPACE or UP arrow to JUMP!', this.game.width * 0.5, this.game.height * 0.5 - 20);
+            context.fillText('Swipe UP or Press SPACE/UP to JUMP', this.game.width * 0.5, this.game.height * 0.5 - 20);
         }
 
 

@@ -157,7 +157,7 @@ export class Player {
                 heart.markedForDeletion = true;
                 this.game.collisions.push(new CollisionAnimation(this.game, heart.x + heart.width * 0.5, heart.y + heart.height * 0.5));
                 this.game.lives += 1;
-                this.game.floatingMessages.push(new FloatingMessage('❤', heart.x, heart.y, 100, 120));
+                this.game.floatingMessages.push(new FloatingMessage('❤', heart.x, heart.y, heart.x, heart.y-50));
                 
                 this.game.maxSpeed += 0.5; // adjust speed increase per get heart
 
