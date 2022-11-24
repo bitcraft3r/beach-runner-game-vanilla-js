@@ -181,7 +181,10 @@ window.addEventListener('load', function(){
     let lastTime = 0;
 
     function animate(timeStamp){
-        if (game.gameStarted === false && game.input.keys.includes('ArrowLeft') || game.gameStarted === false && game.input.keys.includes('ArrowRight')){
+        if (game.gameStarted === false && game.input.keys.includes('ArrowLeft') || 
+            game.gameStarted === false && game.input.keys.includes('ArrowRight') ||
+            game.gameStarted === false && game.input.keys.includes('swipe up')
+        ){
             game.gameStarted = true;
         }
         const deltaTime = timeStamp - lastTime;
